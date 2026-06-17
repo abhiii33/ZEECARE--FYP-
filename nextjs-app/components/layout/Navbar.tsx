@@ -20,6 +20,7 @@ import {
 import { cn } from "@/lib/utils";
 import { logoutPatient, getPatientProfile } from "@/lib/api";
 import { toast } from "sonner";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import type { User as UserType } from "@/types";
 
 const navLinks = [
@@ -97,6 +98,7 @@ export default function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
