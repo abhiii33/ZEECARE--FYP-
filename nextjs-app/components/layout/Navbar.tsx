@@ -15,11 +15,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Menu, Heart, Calendar, Users, Info, Phone, LogOut, User, ChevronDown,
-  Stethoscope, Activity,
+  Stethoscope, Activity, Video,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { logoutPatient, getPatientProfile } from "@/lib/api";
 import { toast } from "sonner";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import type { User as UserType } from "@/types";
 
 const navLinks = [
@@ -27,6 +28,7 @@ const navLinks = [
   { href: "/appointment", label: "Book Appointment", icon: Calendar },
   { href: "/doctors", label: "Doctors", icon: Stethoscope },
   { href: "/departments", label: "Departments", icon: Activity },
+  { href: "/telemedicine", label: "Telemedicine", icon: Video },
   { href: "/about", label: "About Us", icon: Info },
 ];
 
@@ -97,6 +99,7 @@ export default function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

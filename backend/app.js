@@ -8,15 +8,23 @@ import { errorMiddleware } from "./middlewares/error.js";
 import messageRouter from "./router/messageRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
-  
+import departmentRouter from "./router/departmentRouter.js";
+import scheduleRouter from "./router/scheduleRouter.js";
+import opdRouter from "./router/opdRouter.js";
+import bedRouter from "./router/bedRouter.js";
+import inventoryRouter from "./router/inventoryRouter.js";
+import medicalRecordRouter from "./router/medicalRecordRouter.js";
+import billingRouter from "./router/billingRouter.js";
+import reviewRouter from "./router/reviewRouter.js";
+import notificationRouter from "./router/notificationRouter.js";
+
 const app = express();
 config({ path: "./config.env" });
- 
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL_ONE, process.env.FRONTEND_URL_TWO],
-    method: ["GET", "POST", "DELETE", "PUT"],
+    origin: [process.env.FRONTEND_URL_ONE, process.env.FRONTEND_URL_TWO, process.env.FRONTEND_URL_THREE],
+    methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
 );
@@ -31,9 +39,22 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
+
+// Core routes
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
+
+// New feature routes
+app.use("/api/v1/department", departmentRouter);
+app.use("/api/v1/schedule", scheduleRouter);
+app.use("/api/v1/opd", opdRouter);
+app.use("/api/v1/bed", bedRouter);
+app.use("/api/v1/inventory", inventoryRouter);
+app.use("/api/v1/medical-records", medicalRecordRouter);
+app.use("/api/v1/billing", billingRouter);
+app.use("/api/v1/review", reviewRouter);
+app.use("/api/v1/notification", notificationRouter);
 
 dbConnection();
 
