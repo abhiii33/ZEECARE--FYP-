@@ -6,11 +6,13 @@ import {
   getUserDetails,
   login,
   logoutAdmin,
+  logoutDoctor,
   logoutPatient,
   patientRegister,
 } from "../controller/userController.js";
 import {
   isAdminAuthenticated,
+  isDoctorAuthenticated,
   isPatientAuthenticated,
 } from "../middlewares/auth.js";
 
@@ -25,5 +27,7 @@ router.get("/patient/me", isPatientAuthenticated, getUserDetails);
 router.get("/admin/me", isAdminAuthenticated, getUserDetails);
 router.get("/patient/logout", isPatientAuthenticated, logoutPatient);
 router.get("/admin/logout", isAdminAuthenticated, logoutAdmin);
+router.get("/doctor/me", isDoctorAuthenticated, getUserDetails);
+router.get("/doctor/logout", isDoctorAuthenticated, logoutDoctor);
 
 export default router;

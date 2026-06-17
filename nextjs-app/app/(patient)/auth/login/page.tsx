@@ -22,10 +22,12 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      await loginUser(form as { email: string; password: string; role: string });
+      await loginUser({ ...form, confirmPassword: form.password });
       toast.success(`Logged in as ${form.role}`);
       if (form.role === "Admin") {
         router.push("/admin/dashboard");
+      } else if (form.role === "Doctor") {
+        router.push("/doctor/dashboard");
       } else {
         router.push("/");
       }
@@ -62,6 +64,7 @@ export default function LoginPage() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Patient">Patient</SelectItem>
+                    <SelectItem value="Doctor">Doctor</SelectItem>
                     <SelectItem value="Admin">Admin</SelectItem>
                   </SelectContent>
                 </Select>

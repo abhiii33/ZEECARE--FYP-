@@ -208,6 +208,20 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+// Logout function for doctor
+export const logoutDoctor = catchAsyncErrors(async (req, res, next) => {
+  res
+    .status(201)
+    .cookie("doctorToken", "", {
+      httpOnly: true,
+      expires: new Date(Date.now()),
+    })
+    .json({
+      success: true,
+      message: "Doctor Logged Out Successfully.",
+    });
+});
+
 // Logout function for frontend patient
 export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
   res
