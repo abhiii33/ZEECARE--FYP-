@@ -14,8 +14,8 @@ import { toast } from "sonner";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({
-    firstName: "", lastName: "", email: "", phone: "", NIC: "",
-    DOB: "", gender: "", password: "",
+    firstName: "", lastName: "", email: "", phone: "", nic: "",
+    dob: "", gender: "", password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -79,15 +79,15 @@ export default function RegisterPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="NIC">NIC Number</Label>
-                  <Input id="NIC" placeholder="1234567890123" value={form.NIC}
-                    onChange={(e) => update("NIC", e.target.value)} required />
+                  <Input id="NIC" placeholder="1234567890123" value={form.nic}
+                    onChange={(e) => update("nic", e.target.value)} required />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="DOB">Date of Birth</Label>
-                  <Input id="DOB" type="date" value={form.DOB}
-                    onChange={(e) => update("DOB", e.target.value)} required />
+                  <Input id="DOB" type="date" value={form.dob}
+                    onChange={(e) => update("dob", e.target.value)} required />
                 </div>
                 <div className="space-y-2">
                   <Label>Gender</Label>

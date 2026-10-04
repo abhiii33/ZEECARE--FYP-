@@ -5,6 +5,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Video, Clock, Star, Calendar, Wifi, Shield, Smartphone } from "lucide-react";
 import Link from "next/link";
 
+
+
 const onlineDoctors = [
   { name: "Dr. Sarah Johnson", dept: "Cardiology", rating: 4.9, price: "$45", available: true, initials: "SJ" },
   { name: "Dr. Michael Chen", dept: "Neurology", rating: 4.8, price: "$55", available: true, initials: "MC" },

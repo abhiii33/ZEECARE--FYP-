@@ -19,11 +19,11 @@ import reviewRouter from "./router/reviewRouter.js";
 import notificationRouter from "./router/notificationRouter.js";
 
 const app = express();
-config({ path: "./config.env" });
+config({ path: "./.env" });
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL_ONE, process.env.FRONTEND_URL_TWO, process.env.FRONTEND_URL_THREE],
+    origin: process.env.ALLOWED_ORIGINS.split(","),
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
